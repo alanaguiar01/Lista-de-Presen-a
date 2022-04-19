@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* html{
+    --dark-purple: #210124;
+    --white: #F7F9F7;
+} */
+body, input, button{
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+
+    -webkit-font-smoothing: antialiased;
+}
