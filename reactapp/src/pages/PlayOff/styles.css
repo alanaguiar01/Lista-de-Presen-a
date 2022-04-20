@@ -1,0 +1,36 @@
+#container{
+    background-color: black;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#container h1{
+    color: white;
+    text-align: center;
+}
+#container section{
+    display: flex;
+    justify-content:center;
+}
+
+#firstLine, #secondLine{
+    height: 70vh;
+    width: 40vw;
+    background-color: yellow;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+#firstLine .firstMcs, #secondLine .secondMcs{
+    background-color: white;
+    height: 50px;
+    width: calc(100% - 200px);
+    margin: 0 auto;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
