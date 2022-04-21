@@ -1,6 +1,8 @@
 import "./styles.css";
 import { Card } from "../../components/Card";
 import React, {useEffect, useRef, useState} from 'react'
+import {Link } from 'react-router-dom';
+
 
 // const [(variavel alterada) studentName, (função que altera a vareavel)setStudentName] = useState("")
 //O use state é usaddo para renderizar um elemento 
@@ -10,7 +12,7 @@ type Student = {
   name: string
   time: Date
 }
-export function Home() {
+export default function Home() {
   //const [studentName, setStudentName] = useState("") //passar o nome do estudante dinamicamente
   const inputRef = useRef<HTMLInputElement>(null)
   const [students, setStudents] = useState<Student[]>([])//passar o dados do estudante
@@ -65,8 +67,10 @@ export function Home() {
       type="text" 
       placeholder="Digite o nome..."
       />
-      
-      <button type="button" onClick={handleAddStudent}>Adicionar</button>
+      <div id="bttons">
+        <button type="button" onClick={handleAddStudent}>Adicionar</button>
+        <Link to="/playoff"><button type="button" >Concluir</button></Link>
+      </div>
       
       {
         students.map(student => <Card 

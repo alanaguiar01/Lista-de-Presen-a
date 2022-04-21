@@ -12,16 +12,20 @@ type Student = {
     id: string
 }
 
-type RandomStudent = RandomRoundRobin<Student>
+type RandomStudent = RandomRoundRobin<Student> 
 
-export function PlayOff({phase}: PlayOffProps) {
+type Title = string
+
+export default function PlayOff({phase}: PlayOffProps) {
+    
+    const [title, setTitle] = useState<Title>();
     function getPhaseLength(){
         switch (phase) {
-            case 'oitavas': return 8
-            case 'quartas': return 4
-            case 'semiFinal': return 2
-            case 'final': return 1
-        }
+            case 'oitavas':return 8
+            case 'quartas':return 4
+            case 'semiFinal':return 2
+            case 'final':return 1
+        } 
     } 
 
     const [student, setStudent] = useState<RandomStudent>()
@@ -33,11 +37,27 @@ export function PlayOff({phase}: PlayOffProps) {
                 const randomTable = new SequentialRoundRobin<Student>(randomData);
                 setStudent(randomTable) 
             })
+            switch (phase) {
+                case 'oitavas':
+                    setTitle('Oitavas de Final')
+                    break;
+                case 'quartas': 
+                    setTitle('Quartas de Final')
+                    break;
+                case 'semiFinal': 
+                    setTitle('Semi de Final')
+                    break;
+                case 'final': 
+                    setTitle('Final')
+                    break;
+                default: 
+                    return null
+            } 
     }, [])
     return(
         <div id="container">
             <header>
-                <h1>Oitavas de Final</h1>
+                <h1>{title}</h1>
             </header>
             <section>
                 <div id="firstLine">
